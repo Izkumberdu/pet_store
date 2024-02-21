@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_store/const.dart';
-import 'package:pet_store/size_config.dart';
+import 'package:pet_store/app_styles/const.dart';
+import 'package:pet_store/app_styles/size_config.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
