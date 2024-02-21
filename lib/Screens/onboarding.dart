@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_store/app_styles/const.dart';
+import 'package:pet_store/app_styles/constants.dart';
 import 'package:pet_store/app_styles/size_config.dart';
 
 class Onboarding extends StatefulWidget {
@@ -16,6 +16,7 @@ class _OnboardingState extends State<Onboarding> {
     sizeConfig.init(context);
     return Scaffold(
       body: Stack(
+        clipBehavior: Clip.none,
         children: [
           Container(
             height: SizeConfig.blockSizeVertical! * 60,
