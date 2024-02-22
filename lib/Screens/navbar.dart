@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_store/app_styles/constants.dart';
 
 class BotNavBar extends StatefulWidget {
   const BotNavBar({Key? key, required this.currentIndex, required this.onTap})
@@ -16,7 +17,7 @@ class _BotNavBarState extends State<BotNavBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: kPearl,
       type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(

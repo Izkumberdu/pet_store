@@ -22,7 +22,7 @@ class _StoreState extends State<Store> {
           Navigator.pushNamed(context, 'store');
           break;
         case 1:
-          Navigator.pushNamed(context, '');
+          Navigator.pushNamed(context, 'details');
           break;
         case 3:
           Navigator.pushNamed(context, '');
@@ -36,6 +36,7 @@ class _StoreState extends State<Store> {
     SizeConfig sizeConfig = SizeConfig();
     sizeConfig.init(context);
     return Scaffold(
+      backgroundColor: kWhite,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 32),
         child: Column(
@@ -107,11 +108,16 @@ class _StoreState extends State<Store> {
                       ),
                       child: Column(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Image.asset(
-                              cat.image,
-                              fit: BoxFit.cover,
+                          Container(
+                            height: SizeConfig.blockSizeVertical! * 15,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30)),
+                              child: Image.asset(
+                                cat.image,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(height: SizeConfig.blockSizeVertical! * 1),
@@ -126,19 +132,20 @@ class _StoreState extends State<Store> {
                                   style: poppinsRegular.copyWith(fontSize: 20),
                                 ),
                                 SizedBox(
-                                    height: SizeConfig.blockSizeVertical! * 2),
+                                    height:
+                                        SizeConfig.blockSizeVertical! * 1.5),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      '\u20B1 ${cat.price}', // Unicode character for PHP sign
+                                      '\u20B1${cat.price}', // Unicode character for PHP sign
                                       style: poppinsMedium.copyWith(
-                                          color: kYellow, fontSize: 16),
+                                          color: kYellow, fontSize: 18),
                                     ),
                                     Container(
-                                      height: 12,
-                                      width: 14,
+                                      height: 18,
+                                      width: 20,
                                       child: Image(
                                           image: AssetImage(
                                               'assets/images/cart-active.png')),
