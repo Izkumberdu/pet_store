@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_store/Screens/navbar.dart';
 import 'package:pet_store/app_styles/constants.dart';
 import 'package:pet_store/app_styles/size_config.dart';
 import 'package:pet_store/models/cats.dart';
@@ -11,6 +12,25 @@ class Store extends StatefulWidget {
 }
 
 class _StoreState extends State<Store> {
+  int _index = 0;
+
+  void _onTapped(int index) {
+    setState(() {
+      _index = index;
+      switch (index) {
+        case 0:
+          Navigator.pushNamed(context, 'store');
+          break;
+        case 1:
+          Navigator.pushNamed(context, '');
+          break;
+        case 3:
+          Navigator.pushNamed(context, '');
+          break;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig sizeConfig = SizeConfig();
@@ -137,6 +157,10 @@ class _StoreState extends State<Store> {
             )
           ],
         ),
+      ),
+      bottomNavigationBar: BotNavBar(
+        currentIndex: _index,
+        onTap: _onTapped,
       ),
     );
   }
