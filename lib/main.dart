@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_store/Screens/onboarding.dart';
+import 'package:pet_store/Screens/store.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Onboarding(),
+        'store': (context) => const Store()
       },
     );
   }
