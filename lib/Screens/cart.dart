@@ -123,6 +123,10 @@ class _CartState extends State<Cart> {
               },
             ),
             Spacer(),
+            Text(
+              'Total: 100',
+            ),
+            Container()
           ],
         ),
       ),
