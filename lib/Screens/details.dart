@@ -49,7 +49,7 @@ class _DetailsState extends State<Details> {
           ),
           Container(
               width: SizeConfig.blockSizeHorizontal! * 100,
-              height: SizeConfig.blockSizeVertical! * 15,
+              height: SizeConfig.blockSizeVertical! * 13,
               decoration: BoxDecoration(
                   color: kPearl,
                   boxShadow: [
@@ -89,14 +89,47 @@ class _DetailsState extends State<Details> {
                       height: SizeConfig.blockSizeVertical! * 7,
                       width: SizeConfig.blockSizeHorizontal! * 15,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(15),
                           color: kYellow),
-                      child: Image(
-                          image: AssetImage('assets/images/cart-white.png')),
-                    )
+                      child: Icon(
+                        Icons.shopping_cart_checkout,
+                        color: kWhite,
+                        size: 34,
+                      ),
+                    ),
                   ],
                 ),
               )),
+          SizedBox(
+            height: SizeConfig.blockSizeVertical! * 2,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Container(
+                      child: Image(image: AssetImage('assets/images/pet.png')),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Baseline(
+                      baseline: SizeConfig.blockSizeVertical! * 2.4,
+                      baselineType: TextBaseline.alphabetic,
+                      child: Text(
+                        'About The Persian Cat',
+                        style: poppinsBold.copyWith(fontSize: 20),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: BotNavBar(

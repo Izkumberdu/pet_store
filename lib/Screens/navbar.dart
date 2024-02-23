@@ -47,6 +47,10 @@ class _BotNavBarState extends State<BotNavBar> {
       ],
       currentIndex: widget.currentIndex,
       onTap: widget.onTap,
+      selectedLabelStyle: poppinsRegular.copyWith(
+        fontSize: 14,
+      ),
+      selectedItemColor: kYellow,
     );
   }
 }

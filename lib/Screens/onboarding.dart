@@ -38,7 +38,7 @@ class _OnboardingState extends State<Onboarding> {
   void nextPage(BuildContext context) {
     setState(() {
       currentPageIndex++;
-      if (currentPageIndex == 3) {
+      if (currentPageIndex == 3 || currentPageIndex == 4) {
         Navigator.pushNamed(context, 'store');
       }
     });
