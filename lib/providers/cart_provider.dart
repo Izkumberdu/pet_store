@@ -19,6 +19,9 @@ class CartProvider extends ChangeNotifier {
   }
 
   void removeAll() {
+    for (var item in _items) {
+      item.isInCart = false;
+    }
     _items.clear();
     notifyListeners();
   }

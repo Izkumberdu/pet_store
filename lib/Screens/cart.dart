@@ -24,7 +24,7 @@ class _CartState extends State<Cart> {
           Navigator.pushNamed(context, 'store');
           break;
         case 1:
-          Navigator.pushNamed(context, 'details');
+          Navigator.pushNamed(context, 'store');
           break;
         case 2:
           Navigator.pushNamed(context, 'cart');
@@ -37,6 +37,7 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     SizeConfig sizeConfig = SizeConfig();
     sizeConfig.init(context);
+    CartProvider provider = Provider.of<CartProvider>(context);
     return Scaffold(
       backgroundColor: kWhite,
       body: Padding(
@@ -59,6 +60,7 @@ class _CartState extends State<Cart> {
               builder: (context, provider, _) {
                 return Expanded(
                   child: ListView.builder(
+                    shrinkWrap: true,
                     itemCount: provider.items.length,
                     itemBuilder: (context, index) {
                       Cats product = provider.items[index];
@@ -94,7 +96,7 @@ class _CartState extends State<Cart> {
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  'Peso Sign ${product.price}',
+                                  ' ₱${product.price}',
                                   style: poppinsMedium.copyWith(
                                     fontSize: 14,
                                     color: kYellow,
@@ -105,7 +107,6 @@ class _CartState extends State<Cart> {
                             Spacer(),
                             IconButton(
                               onPressed: () {
-                                // Implement delete functionality here
                                 provider.remove(product);
                               },
                               icon: Icon(
@@ -124,9 +125,52 @@ class _CartState extends State<Cart> {
             ),
             Spacer(),
             Text(
-              'Total: 100',
+              'Total: ₱${provider.getCartTotal().toStringAsFixed(2)}',
+              style: poppinsBold.copyWith(fontSize: 24),
             ),
-            Container()
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: kYellow,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Checkout Successful"),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text("OK"),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              provider.removeAll();
+                              Navigator.pushNamed(context, 'store');
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Center(
+                  child: Text(
+                    'Checkout',
+                    style: TextStyle(
+                      color: kWhite,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

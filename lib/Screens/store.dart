@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_store/Screens/details.dart';
 import 'package:pet_store/Screens/navbar.dart';
 import 'package:pet_store/app_styles/constants.dart';
 import 'package:pet_store/app_styles/size_config.dart';
@@ -7,14 +8,14 @@ import 'package:pet_store/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 class Store extends StatefulWidget {
-  const Store({super.key});
+  const Store({Key? key});
 
   @override
   State<Store> createState() => _StoreState();
 }
 
 class _StoreState extends State<Store> {
-  int _index = 0;
+  int _index = 1;
 
   void _onTapped(int index) {
     setState(() {
@@ -24,7 +25,12 @@ class _StoreState extends State<Store> {
           Navigator.pushNamed(context, 'store');
           break;
         case 1:
-          Navigator.pushNamed(context, 'details');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(cat: catsList[index]),
+            ),
+          );
           break;
         case 2:
           Navigator.pushNamed(context, 'cart');
@@ -92,84 +98,95 @@ class _StoreState extends State<Store> {
                 itemCount: catsList.length,
                 itemBuilder: (BuildContext context, int index) {
                   Cats cat = catsList[index];
-                  return Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Container(
-                      height: SizeConfig.blockSizeVertical! * 15,
-                      width: SizeConfig.blockSizeHorizontal! * 45,
-                      decoration: BoxDecoration(
-                        color: kPearl,
-                        borderRadius: BorderRadius.circular(30),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: SizeConfig.blockSizeVertical! * 15,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(30),
-                                  topRight: Radius.circular(30)),
-                              child: Image.asset(
-                                cat.image,
-                                fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () {
+                      // Navigate to the details page and pass the selected cat
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Details(cat: cat),
+                        ),
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                        height: SizeConfig.blockSizeVertical! * 15,
+                        width: SizeConfig.blockSizeHorizontal! * 45,
+                        decoration: BoxDecoration(
+                          color: kPearl,
+                          borderRadius: BorderRadius.circular(30),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: SizeConfig.blockSizeVertical! * 15,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(30),
+                                    topRight: Radius.circular(30)),
+                                child: Image.asset(
+                                  cat.image,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: SizeConfig.blockSizeVertical! * 1),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  cat.name,
-                                  textAlign: TextAlign.start,
-                                  style: poppinsMedium.copyWith(fontSize: 20),
-                                ),
-                                SizedBox(
-                                    height:
-                                        SizeConfig.blockSizeVertical! * 1.5),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '\u20B1${cat.price}',
-                                      style: poppinsMedium.copyWith(
-                                          color: kYellow, fontSize: 18),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        if (cat.isInCart == false) {
-                                          cartProvider.add(cat);
-                                        } else {
-                                          cartProvider.remove(cat);
-                                        }
-                                      },
-                                      child: Container(
-                                        height: 18,
-                                        width: 20,
-                                        child: Image(
-                                          image: AssetImage(cat.isInCart
-                                              ? 'assets/images/cart-active.png'
-                                              : 'assets/images/cart-inactive.png'),
-                                        ),
+                            SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    cat.name,
+                                    textAlign: TextAlign.start,
+                                    style: poppinsMedium.copyWith(fontSize: 20),
+                                  ),
+                                  SizedBox(
+                                      height:
+                                          SizeConfig.blockSizeVertical! * 1.5),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        '\u20B1${cat.price}',
+                                        style: poppinsMedium.copyWith(
+                                            color: kYellow, fontSize: 18),
                                       ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                                      GestureDetector(
+                                        onTap: () {
+                                          if (cat.isInCart == false) {
+                                            cartProvider.add(cat);
+                                          } else {
+                                            cartProvider.remove(cat);
+                                          }
+                                        },
+                                        child: Container(
+                                          height: 18,
+                                          width: 20,
+                                          child: Image(
+                                            image: AssetImage(cat.isInCart
+                                                ? 'assets/images/cart-active.png'
+                                                : 'assets/images/cart-inactive.png'),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   );

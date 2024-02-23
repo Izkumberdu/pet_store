@@ -5,14 +5,16 @@ import 'package:pet_store/app_styles/size_config.dart';
 import 'package:pet_store/models/cats.dart';
 
 class Details extends StatefulWidget {
-  const Details({super.key});
+  final Cats cat;
+
+  const Details({Key? key, required this.cat}) : super(key: key);
 
   @override
   State<Details> createState() => _DetailsState();
 }
 
 class _DetailsState extends State<Details> {
-  int _index = 0;
+  int _index = 1;
 
   void _onTapped(int index) {
     setState(() {
@@ -22,7 +24,7 @@ class _DetailsState extends State<Details> {
           Navigator.pushNamed(context, 'store');
           break;
         case 1:
-          Navigator.pushNamed(context, 'details');
+          Navigator.pushNamed(context, 'store');
           break;
         case 2:
           Navigator.pushNamed(context, 'cart');
@@ -43,7 +45,7 @@ class _DetailsState extends State<Details> {
             height: SizeConfig.blockSizeVertical! * 40,
             width: SizeConfig.blockSizeHorizontal! * 100,
             child: Image(
-              image: AssetImage('assets/images/bobtail.jpg'),
+              image: AssetImage(widget.cat.image), // Use cat's image
               fit: BoxFit.fill,
             ),
           ),
@@ -74,7 +76,7 @@ class _DetailsState extends State<Details> {
                           height: 10,
                         ),
                         Text(
-                          'Persian Cat',
+                          widget.cat.name,
                           style: poppinsBold.copyWith(fontSize: 26),
                         ),
                         SizedBox(
@@ -121,7 +123,7 @@ class _DetailsState extends State<Details> {
                       baseline: SizeConfig.blockSizeVertical! * 2.4,
                       baselineType: TextBaseline.alphabetic,
                       child: Text(
-                        'About The Persian Cat',
+                        'About ${widget.cat.name}',
                         style: poppinsBold.copyWith(fontSize: 20),
                       ),
                     ),
@@ -162,7 +164,7 @@ class _DetailsState extends State<Details> {
                               height: 10,
                             ),
                             Text(
-                              '3.75kg',
+                              widget.cat.weight,
                               style: poppinsBold.copyWith(
                                   color: kYellow, fontSize: 18),
                             ),
@@ -203,7 +205,7 @@ class _DetailsState extends State<Details> {
                               height: 10,
                             ),
                             Text(
-                              '22cm',
+                              widget.cat.height,
                               style: poppinsBold.copyWith(
                                   color: kYellow, fontSize: 18),
                             ),
@@ -244,7 +246,7 @@ class _DetailsState extends State<Details> {
                               height: 10,
                             ),
                             Text(
-                              'Orange',
+                              widget.cat.color,
                               style: poppinsBold.copyWith(
                                   color: kYellow, fontSize: 18),
                             ),
@@ -258,7 +260,7 @@ class _DetailsState extends State<Details> {
                   height: SizeConfig.blockSizeVertical! * 3.5,
                 ),
                 Text(
-                  'The Sphinx cat, hairless and charming, boasts a velvety skin in various colors and patterns. Playful and affectionate, they capture hearts with their unique appearance and lively personalities.',
+                  widget.cat.description,
                   style:
                       poppinsRegular.copyWith(color: kDarkGrey, fontSize: 18),
                 )

@@ -30,8 +30,8 @@ final List<Cats> catsList = [
     location: 'Japan',
     distance: '10 miles',
     price: 500,
-    height: '10-15 inches',
-    weight: '7-15 pounds',
+    height: '15 inch',
+    weight: '4 kg',
     color: 'Various',
     isInCart: false,
     description:
@@ -44,8 +44,8 @@ final List<Cats> catsList = [
     image: 'assets/images/burmese.jpg',
     distance: '15 miles',
     price: 600,
-    height: '10-12 inches',
-    weight: '6-12 pounds',
+    height: '12 inch',
+    weight: '6-12 kg',
     color: 'Various',
     isInCart: false,
     description:
@@ -59,8 +59,8 @@ final List<Cats> catsList = [
     distance: '20 miles',
     isInCart: false,
     price: 700,
-    height: '10-15 inches',
-    weight: '7-12 pounds',
+    height: '10-15 inch',
+    weight: '7-12 kg',
     color: 'Various',
     description:
         'The Persian is one of the oldest and most popular breeds of domestic cats.'
@@ -73,8 +73,8 @@ final List<Cats> catsList = [
     distance: '25 miles',
     isInCart: false,
     price: 400,
-    height: '8-12 inches',
-    weight: '5-10 pounds',
+    height: '8-12 inch',
+    weight: '5-10 kg',
     color: 'Various',
     description:
         'The Puspin, short for Pusang Pinoy, is a term used for domestic cats of unknown ancestry in the Philippines.'
@@ -87,8 +87,8 @@ final List<Cats> catsList = [
     distance: '30 miles',
     price: 800,
     isInCart: false,
-    height: '7-9 inches',
-    weight: '6-13 pounds',
+    height: '7-9 inch',
+    weight: '6-13 kg',
     color: 'Various',
     description:
         'The Scottish Fold is a breed of domestic cat with distinctive folded ears.'
@@ -101,8 +101,8 @@ final List<Cats> catsList = [
     distance: '22 miles',
     price: 750,
     isInCart: false,
-    height: '8-10 inches',
-    weight: '6-14 pounds',
+    height: '8-10 inch',
+    weight: '6-14 kg',
     color: 'Various',
     description:
         'The Siamese is one of the oldest and most recognizable breeds of domestic cats.'
@@ -115,8 +115,8 @@ final List<Cats> catsList = [
     distance: '35 miles',
     price: 900,
     isInCart: false,
-    height: '9-11 inches',
-    weight: '8-17 pounds',
+    height: '9-11 inch',
+    weight: '8-17 kg',
     color: 'Various',
     description: 'The Siberian is a breed of domestic cat native to Russia.'
         'It is known for its thick, triple-layered coat and strong, muscular build.',
@@ -128,8 +128,8 @@ final List<Cats> catsList = [
     distance: '18 miles',
     price: 850,
     isInCart: false,
-    height: '8-10 inches',
-    weight: '6-12 pounds',
+    height: '8-10 inch',
+    weight: '6-12 kg',
     color: 'Various',
     description:
         'The Sphynx is a breed of hairless cat known for its wrinkled skin and distinctive appearance.'
