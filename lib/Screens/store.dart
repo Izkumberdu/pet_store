@@ -78,7 +78,11 @@ class _StoreState extends State<Store> {
                   Container(
                     width: SizeConfig.blockSizeHorizontal! * 75,
                     child: TextField(
-                      decoration: InputDecoration(),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Search for your pet here',
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
                     ),
                   ),
                 ],

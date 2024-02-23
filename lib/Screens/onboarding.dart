@@ -84,12 +84,18 @@ class _OnboardingState extends State<Onboarding> {
                           children: List.generate(
                             pagesContent.length,
                             (index) => Container(
-                              child: Image(
-                                image: AssetImage(
-                                  index == currentPageIndex
-                                      ? 'assets/images/scroll-circle-active.png'
-                                      : 'assets/images/scroll-circle-inactive.png',
-                                ),
+                              child: Row(
+                                children: [
+                                  Image(
+                                    image: AssetImage(
+                                      index == currentPageIndex
+                                          ? 'assets/images/scroll-circle-active.png'
+                                          : 'assets/images/scroll-circle-inactive.png',
+                                    ),
+                                  ),
+                                  SizedBox(
+                                      width: 10), // Adjust the width as needed
+                                ],
                               ),
                             ),
                           ),
