@@ -8,11 +8,13 @@ class CartProvider extends ChangeNotifier {
 
   void add(Cats item) {
     _items.add(item);
+    item.isInCart = true;
     notifyListeners();
   }
 
   void remove(Cats item) {
     _items.remove(item);
+    item.isInCart = false;
     notifyListeners();
   }
 

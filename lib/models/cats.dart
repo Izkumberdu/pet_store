@@ -8,6 +8,7 @@ class Cats {
   final String color;
   final String description;
   final String image;
+  bool isInCart;
 
   Cats(
       {required this.name,
@@ -18,7 +19,8 @@ class Cats {
       required this.weight,
       required this.color,
       required this.description,
-      required this.image});
+      required this.image,
+      required this.isInCart});
 }
 
 final List<Cats> catsList = [
@@ -31,6 +33,7 @@ final List<Cats> catsList = [
     height: '10-15 inches',
     weight: '7-15 pounds',
     color: 'Various',
+    isInCart: false,
     description:
         'The Bobtail is a breed of domestic cat with a distinctive "bobbed" tail.'
         'It is known for its playful and friendly personality.',
@@ -44,6 +47,7 @@ final List<Cats> catsList = [
     height: '10-12 inches',
     weight: '6-12 pounds',
     color: 'Various',
+    isInCart: false,
     description:
         'The Burmese is a breed of domestic cat that originated in Southeast Asia.'
         'It is known for its affectionate nature and sleek, muscular build.',
@@ -53,6 +57,7 @@ final List<Cats> catsList = [
     location: 'Persia',
     image: 'assets/images/persian.jpg',
     distance: '20 miles',
+    isInCart: false,
     price: 700,
     height: '10-15 inches',
     weight: '7-12 pounds',
@@ -66,6 +71,7 @@ final List<Cats> catsList = [
     image: 'assets/images/puspin.jpeg',
     location: 'Philippines',
     distance: '25 miles',
+    isInCart: false,
     price: 400,
     height: '8-12 inches',
     weight: '5-10 pounds',
@@ -80,6 +86,7 @@ final List<Cats> catsList = [
     location: 'Scotland',
     distance: '30 miles',
     price: 800,
+    isInCart: false,
     height: '7-9 inches',
     weight: '6-13 pounds',
     color: 'Various',
@@ -93,6 +100,7 @@ final List<Cats> catsList = [
     location: 'Thailand',
     distance: '22 miles',
     price: 750,
+    isInCart: false,
     height: '8-10 inches',
     weight: '6-14 pounds',
     color: 'Various',
@@ -106,6 +114,7 @@ final List<Cats> catsList = [
     location: 'Russia',
     distance: '35 miles',
     price: 900,
+    isInCart: false,
     height: '9-11 inches',
     weight: '8-17 pounds',
     color: 'Various',
@@ -118,6 +127,7 @@ final List<Cats> catsList = [
     location: 'Canada',
     distance: '18 miles',
     price: 850,
+    isInCart: false,
     height: '8-10 inches',
     weight: '6-12 pounds',
     color: 'Various',

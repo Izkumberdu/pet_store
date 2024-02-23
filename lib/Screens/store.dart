@@ -3,6 +3,8 @@ import 'package:pet_store/Screens/navbar.dart';
 import 'package:pet_store/app_styles/constants.dart';
 import 'package:pet_store/app_styles/size_config.dart';
 import 'package:pet_store/models/cats.dart';
+import 'package:pet_store/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class Store extends StatefulWidget {
   const Store({super.key});
@@ -33,6 +35,8 @@ class _StoreState extends State<Store> {
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     SizeConfig sizeConfig = SizeConfig();
     sizeConfig.init(context);
     return Scaffold(
@@ -142,12 +146,23 @@ class _StoreState extends State<Store> {
                                       style: poppinsMedium.copyWith(
                                           color: kYellow, fontSize: 18),
                                     ),
-                                    Container(
-                                      height: 18,
-                                      width: 20,
-                                      child: Image(
-                                          image: AssetImage(
-                                              'assets/images/cart-active.png')),
+                                    GestureDetector(
+                                      onTap: () {
+                                        if (cat.isInCart == false) {
+                                          cartProvider.add(cat);
+                                        } else {
+                                          cartProvider.remove(cat);
+                                        }
+                                      },
+                                      child: Container(
+                                        height: 18,
+                                        width: 20,
+                                        child: Image(
+                                          image: AssetImage(cat.isInCart
+                                              ? 'assets/images/cart-active.png'
+                                              : 'assets/images/cart-inactive.png'),
+                                        ),
+                                      ),
                                     )
                                   ],
                                 )
