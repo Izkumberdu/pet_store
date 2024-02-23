@@ -24,8 +24,8 @@ class _DetailsState extends State<Details> {
         case 1:
           Navigator.pushNamed(context, 'details');
           break;
-        case 3:
-          Navigator.pushNamed(context, '');
+        case 2:
+          Navigator.pushNamed(context, 'cart');
           break;
       }
     });
@@ -127,6 +127,141 @@ class _DetailsState extends State<Details> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: SizeConfig.blockSizeVertical! * 10,
+                      width: SizeConfig.blockSizeHorizontal! * 28,
+                      decoration: BoxDecoration(
+                        color: kLightGreen,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Weight',
+                              style: poppinsRegular.copyWith(
+                                  color: kDarkGrey, fontSize: 14),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              '3.75kg',
+                              style: poppinsBold.copyWith(
+                                  color: kYellow, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      height: SizeConfig.blockSizeVertical! * 10,
+                      width: SizeConfig.blockSizeHorizontal! * 28,
+                      decoration: BoxDecoration(
+                        color: kLightGreen,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Height',
+                              style: poppinsRegular.copyWith(
+                                  color: kDarkGrey, fontSize: 14),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              '22cm',
+                              style: poppinsBold.copyWith(
+                                  color: kYellow, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      height: SizeConfig.blockSizeVertical! * 10,
+                      width: SizeConfig.blockSizeHorizontal! * 28,
+                      decoration: BoxDecoration(
+                        color: kLightGreen,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Color',
+                              style: poppinsRegular.copyWith(
+                                  color: kDarkGrey, fontSize: 14),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              'Orange',
+                              style: poppinsBold.copyWith(
+                                  color: kYellow, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: SizeConfig.blockSizeVertical! * 3.5,
+                ),
+                Text(
+                  'The Sphinx cat, hairless and charming, boasts a velvety skin in various colors and patterns. Playful and affectionate, they capture hearts with their unique appearance and lively personalities.',
+                  style:
+                      poppinsRegular.copyWith(color: kDarkGrey, fontSize: 18),
+                )
               ],
             ),
           ),

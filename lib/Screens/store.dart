@@ -24,8 +24,8 @@ class _StoreState extends State<Store> {
         case 1:
           Navigator.pushNamed(context, 'details');
           break;
-        case 3:
-          Navigator.pushNamed(context, '');
+        case 2:
+          Navigator.pushNamed(context, 'cart');
           break;
       }
     });
@@ -38,7 +38,7 @@ class _StoreState extends State<Store> {
     return Scaffold(
       backgroundColor: kWhite,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 32),
+        padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [
             SizedBox(height: SizeConfig.blockSizeVertical! * 5),
