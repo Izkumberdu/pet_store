@@ -81,19 +81,18 @@ class _StoreState extends State<Store> {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisSpacing: 20.0, // Padding between rows
-                  crossAxisSpacing: 20.0, // Padding between columns
-                  childAspectRatio: 0.7, // Aspect ratio for each item
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 15.0,
+                  childAspectRatio: 0.7,
                 ),
                 itemCount: catsList.length,
                 itemBuilder: (BuildContext context, int index) {
                   Cats cat = catsList[index];
                   return Padding(
-                    padding:
-                        EdgeInsets.all(8.0), // Padding around each cat item
+                    padding: EdgeInsets.all(8.0),
                     child: Container(
                       height: SizeConfig.blockSizeVertical! * 15,
-                      width: SizeConfig.blockSizeHorizontal! * 40,
+                      width: SizeConfig.blockSizeHorizontal! * 45,
                       decoration: BoxDecoration(
                         color: kPearl,
                         borderRadius: BorderRadius.circular(30),
@@ -129,7 +128,7 @@ class _StoreState extends State<Store> {
                                 Text(
                                   cat.name,
                                   textAlign: TextAlign.start,
-                                  style: poppinsRegular.copyWith(fontSize: 20),
+                                  style: poppinsMedium.copyWith(fontSize: 20),
                                 ),
                                 SizedBox(
                                     height:
@@ -139,7 +138,7 @@ class _StoreState extends State<Store> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      '\u20B1${cat.price}', // Unicode character for PHP sign
+                                      '\u20B1${cat.price}',
                                       style: poppinsMedium.copyWith(
                                           color: kYellow, fontSize: 18),
                                     ),
